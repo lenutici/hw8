@@ -12,30 +12,19 @@ function getRandomColor() {
     return [bkgColorHeader, bkgColorLogo];
 }
 
-// function mouseOver() {
-//     const result = getRandomColor() // => [bkgColorHeader, bkgColorLogo]
-
-//     document.getElementById('logo').style.backgroundColor = result[0];
-//     document.getElementById('header').style.backgroundColor = result[1];
-
-//     document.querySelectorAll('.top_nav a').forEach(function(a) {
-//         a.addEventListener("mouseover", function(e) {
-//             this.style.backgroundColor = result[1];
-//         });
-//     });
-// }
 document.getElementById('logo').addEventListener("mouseover", function() {
     const result = getRandomColor();
     this.style.backgroundColor = result[1];
+
     document.getElementById('header').style.backgroundColor = result[0];
 
     document.querySelectorAll('.top_nav a').forEach(function(a) {
-        a.style.backgroundColor =  result[0];
+        a.style.backgroundColor =  result[0]; // by default urls will have the same color as header
         a.addEventListener("mouseover", function() {
-            this.style.backgroundColor = result[1];
+            this.style.backgroundColor = result[1]; // on mouseover urls will have the same color as logo
         });
         a.addEventListener("mouseout", function () {
-            this.style.backgroundColor = result[0];
+            this.style.backgroundColor = result[0];  // on mouseout urls will have again the same color as header
         })
     });
 });
