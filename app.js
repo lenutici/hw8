@@ -17,5 +17,10 @@ function mouseOver() {
 
     document.getElementById('logo').style.backgroundColor = result[0];
     document.getElementById('header').style.backgroundColor = result[1];
-    document.getElementsByTagName('a').style.backgroundColor = result[1];
+
+    document.querySelectorAll('.top_nav a').forEach(function(a) {
+        a.addEventListener("mouseover", function(e) {
+            this.style.backgroundColor = result[1];
+        });
+    });
 }
