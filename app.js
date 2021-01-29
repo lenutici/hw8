@@ -12,15 +12,30 @@ function getRandomColor() {
     return [bkgColorHeader, bkgColorLogo];
 }
 
-function mouseOver() {
-    const result = getRandomColor() // => [bkgColorHeader, bkgColorLogo]
+// function mouseOver() {
+//     const result = getRandomColor() // => [bkgColorHeader, bkgColorLogo]
 
-    document.getElementById('logo').style.backgroundColor = result[0];
-    document.getElementById('header').style.backgroundColor = result[1];
+//     document.getElementById('logo').style.backgroundColor = result[0];
+//     document.getElementById('header').style.backgroundColor = result[1];
+
+//     document.querySelectorAll('.top_nav a').forEach(function(a) {
+//         a.addEventListener("mouseover", function(e) {
+//             this.style.backgroundColor = result[1];
+//         });
+//     });
+// }
+document.getElementById('logo').addEventListener("mouseover", function() {
+    const result = getRandomColor();
+    this.style.backgroundColor = result[1];
+    document.getElementById('header').style.backgroundColor = result[0];
 
     document.querySelectorAll('.top_nav a').forEach(function(a) {
-        a.addEventListener("mouseover", function(e) {
+        a.style.backgroundColor =  result[0];
+        a.addEventListener("mouseover", function() {
             this.style.backgroundColor = result[1];
         });
+        a.addEventListener("mouseout", function () {
+            this.style.backgroundColor = result[0];
+        })
     });
-}
+});
